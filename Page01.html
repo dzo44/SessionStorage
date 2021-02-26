@@ -10,17 +10,16 @@
     <form action="">
         <input type="button" value="Save" onclick="Save()"> &nbsp;&nbsp;
         <input type="button" value="Read" onclick="Read()"> &nbsp;&nbsp;
-        <input type="button" value="Delete" onclick="Delete()"> &nbsp;&nbsp;
+        <input type="button" value="Delete" onclick="DeleteFromStorageByKey()"> &nbsp;&nbsp;
         <br>
         <br>
         <input type="button" value="Delete session storage" onclick="DeleteAll()"> &nbsp;&nbsp;
     </form>
     <br>
-    <p id="p1"></p>
     <script>
          function Save() {
-            if (sessionStorage.key1 == undefined) {
-                sessionStorage.key1 = "Red Star Belgrade"
+            if (sessionStorage.inCart  === undefined) {
+                sessionStorage.inCart  = "Red Star Belgrade"
                 alert("Data stored");
             }
             else{
@@ -29,30 +28,28 @@
         }
 
         function Read() {
-            
-            if (sessionStorage.key1 != undefined) {
-                var p1 = document.getElementById("p1")
-                var value = sessionStorage.key1;
-                p1.innerText =sessionStorage.key1;
-                
+
+            if (sessionStorage.inCart !== undefined) {
+                let value = sessionStorage.inCart;
+                alert(value);
             }
             else{
                 alert("Data does not exist");
             }
         }
 
-        function Delete() {
-            if (sessionStorage.key1 != undefined) {
-                var p1 = document.getElementById("p1")
-                p1.innerText = "";
-                sessionStorage.removeItem("key1");
-                alert("Data cleared");
+        function DeleteFromStorageByKey() {
+            if (sessionStorage.inCart !== undefined) {
+             
                 
+                sessionStorage.removeItem("inCart");
+                alert("Data cleared");
+
             }
             else{
                 alert("Data does not exist");
             }
-           
+
         }
 
         function DeleteAll() {
